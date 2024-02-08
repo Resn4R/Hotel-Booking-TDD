@@ -8,12 +8,25 @@
 import Foundation
 
 struct CompanyService {
+    
+    enum EmployeeError: Error {
+        case employeeAlreadyExists, employeeDoesNotExist
+    }
+    
     var employees: [Employee]
     
-    mutating func addEmployee(companyID: Int, employeeID: Int, role: Employee.Role = .staff) {
-        let newEmployee = Employee(companyID: companyID, employeeID: employeeID, role: role)
+    mutating func addEmployee(companyID: Int, employeeID: Int, role: Employee.Role = .staff) throws {
+        do {
+            guard !employees.contains(where: {$0.companyID == companyID && $0.employeeID == employeeID}) else { throw EmployeeError.employeeAlreadyExists }
+            
+            let newEmployee = Employee(companyID: companyID, employeeID: employeeID, role: role)
+            
+            employees.append(newEmployee)
+        } catch {
+            print("employee already exists")
+        }
         
-        employees.append(newEmployee)
+        
     }
     
     mutating func deleteEmployee(id: Int) {

@@ -31,7 +31,7 @@ final class Hotel_Booking_TDDTests: XCTestCase {
     func testAddEmployee() {
         var companyService = CompanyService(employees: [])
         
-        companyService.addEmployee(companyID: 1, employeeID: 1)
+        try? companyService.addEmployee(companyID: 1, employeeID: 1)
         
         XCTAssertEqual(companyService.employees[0], Employee(companyID: 1, employeeID: 1, role: .staff))
     }
@@ -39,7 +39,7 @@ final class Hotel_Booking_TDDTests: XCTestCase {
     func testRemoveEmployee() {
         var companyService = CompanyService(employees: [])
         
-        companyService.addEmployee(companyID: 1, employeeID: 1)
+        try? companyService.addEmployee(companyID: 1, employeeID: 1)
         
         companyService.deleteEmployee(id: 1)
         
