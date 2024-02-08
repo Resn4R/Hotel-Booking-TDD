@@ -47,10 +47,20 @@ final class Hotel_Booking_TDDTests: XCTestCase {
     }
     
     func testSetCompanyPolicy() {
-        var policyService = BookingPolicySerivce(bookingPolicies: [])
+        var policyService = BookingPolicyService(bookingPolicies: [])
         
         policyService.setCompanyPolicy(id: 1, companyID: 1, roomTypesAllowed: (nil ,Room.roomType.standard))
         
         XCTAssertEqual(policyService.bookingPolicies[0], Policy(id: 1, companyID: 1, roomTypesAllowed: (nil, Room.roomType.standard)))
     }
+    
+    func testSetEmployeePolicy() {
+        var policyService = BookingPolicyService(bookingPolicies: [])
+        
+        policyService.setEmployeePolicy(id: 1, employeeID: 1, roomTypesAllowed: (nil ,Room.roomType.standard))
+        
+        XCTAssertEqual(policyService.bookingPolicies[0], Policy(id: 1, employeeID: 1, roomTypesAllowed: (nil, Room.roomType.standard)))
+    }
+    
+    
 }
