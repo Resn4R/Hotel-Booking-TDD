@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Hotel: Equatable {
+struct Hotel: Equatable,Identifiable {
     
     let id: Int
     let name: String

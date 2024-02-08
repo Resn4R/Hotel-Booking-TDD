@@ -28,5 +28,11 @@ final class Hotel_Booking_TDDTests: XCTestCase {
         XCTAssertEqual(hotelService.hotelList[0].rooms[0], Room(number: 101, type: .single))
     }
     
-    
+    func testAddEmployee() {
+        var companyService = CompanyService(employees: [])
+        
+        companyService.addEmployee(companyID: 1, employeeID: 1)
+        
+        XCTAssertEqual(companyService.employees[0], Employee(companyID: 1, employeeID: 1, role: .staff))
+    }
 }
