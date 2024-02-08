@@ -15,4 +15,8 @@ struct CompanyService {
         
         employees.append(newEmployee)
     }
+    
+    mutating func deleteEmployee(id: Int) {
+        employees.removeAll(where: { $0.employeeID == id })
+    }
 }

@@ -35,4 +35,14 @@ final class Hotel_Booking_TDDTests: XCTestCase {
         
         XCTAssertEqual(companyService.employees[0], Employee(companyID: 1, employeeID: 1, role: .staff))
     }
+    
+    func testRemoveEmployee() {
+        var companyService = CompanyService(employees: [])
+        
+        companyService.addEmployee(companyID: 1, employeeID: 1)
+        
+        companyService.deleteEmployee(id: 1)
+        
+        XCTAssertTrue(companyService.employees.isEmpty)
+    }
 }
