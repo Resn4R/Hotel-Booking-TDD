@@ -23,7 +23,7 @@ final class Hotel_Booking_TDDTests: XCTestCase {
         let newHotel = Hotel(id: 1, name: "Sample Hotel", rooms: [])
         
         try? hotelService.addHotel(newHotel)
-        hotelService.setRoom(number: 101, type: .single, in: newHotel)
+        try? hotelService.setRoom(number: 101, type: .single, in: newHotel)
         
         XCTAssertEqual(hotelService.hotelList[0].rooms[0], Room(number: 101, type: .single))
     }

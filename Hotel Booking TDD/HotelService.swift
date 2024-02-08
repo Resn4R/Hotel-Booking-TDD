@@ -10,7 +10,7 @@ import Foundation
 struct HotelService {
     
     enum hotelError: Error {
-    case hotelAlreadyExists
+    case hotelAlreadyExists, hotelDoesNotExist
     }
     
     var hotelList: [Hotel] = []
@@ -25,18 +25,16 @@ struct HotelService {
         } catch {
             print("Hotel already exists.")
         }
-        
-        
     }
     
     func findHotel(by id: Int) -> Hotel? {
         hotelList.first(where: {$0.id == id})
     }
     
-    mutating func setRoom(number: Int, type: Room.roomType, in hotel: Hotel) {
+    mutating func setRoom(number: Int, type: Room.roomType, in hotel: Hotel) throws {
         let room = Room(number: number, type: type)
         
-        guard let index = hotelList.firstIndex(of: hotel) else { return }
+        guard let index = hotelList.firstIndex(of: hotel) else { throw hotelError.hotelDoesNotExist }
         
         hotelList[index].rooms.append(room)
     }
