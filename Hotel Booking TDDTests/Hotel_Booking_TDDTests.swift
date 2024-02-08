@@ -9,28 +9,24 @@ import XCTest
 @testable import Hotel_Booking_TDD
 
 final class Hotel_Booking_TDDTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testAddHotel() {
+        var hotelService = HotelService()
+        let newHotel = Hotel(id: 1, name: "Sample Hotel", rooms: [])
+        
+        hotelService.addHotel(newHotel)
+        
+        XCTAssertEqual(hotelService.getHotel(at: 0), newHotel)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testSetRoom() {
+        var hotelService = HotelService()
+        let newHotel = Hotel(id: 1, name: "Sample Hotel", rooms: [])
+        
+        hotelService.addHotel(newHotel)
+        hotelService.setRoom(number: 101, type: .single, in: newHotel)
+        
+        XCTAssertEqual(hotelService.hotelList[0].rooms[0], Room(number: 101, type: .single))
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
+    
+    
 }
