@@ -23,9 +23,9 @@ final class Hotel_Booking_TDDTests: XCTestCase {
         let newHotel = Hotel(id: 1, name: "Sample Hotel", rooms: [])
         
         try? hotelService.addHotel(newHotel)
-        try? hotelService.setRoom(number: 101, type: .single, in: newHotel)
+        try? hotelService.setRoom(number: 101, type: .standard, size: .single, in: newHotel)
         
-        XCTAssertEqual(hotelService.hotelList[0].rooms[0], Room(number: 101, type: .single))
+        XCTAssertEqual(hotelService.hotelList[0].rooms[0], Room(number: 101, type: .standard, size: .single))
     }
     
     func testAddEmployee() {
@@ -44,5 +44,13 @@ final class Hotel_Booking_TDDTests: XCTestCase {
         companyService.deleteEmployee(id: 1)
         
         XCTAssertTrue(companyService.employees.isEmpty)
+    }
+    
+    func testSetCompanyPolicy() {
+        var policyService = BookingPolicySerivce(bookingPolicies: [])
+        
+        policyService.setCompanyPolicy(id: 1, companyID: 1, roomTypesAllowed: (nil ,Room.roomType.standard))
+        
+        XCTAssertEqual(policyService.bookingPolicies[0], Policy(id: 1, companyID: 1, roomTypesAllowed: (nil, Room.roomType.standard)))
     }
 }

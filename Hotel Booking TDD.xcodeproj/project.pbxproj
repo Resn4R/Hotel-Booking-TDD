@@ -19,6 +19,8 @@
 		4FDEC56A2B75554F009F6568 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDEC5692B75554F009F6568 /* Room.swift */; };
 		4FDEC56C2B755B1B009F6568 /* CompanyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDEC56B2B755B1B009F6568 /* CompanyService.swift */; };
 		4FDEC5702B755B51009F6568 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDEC56F2B755B51009F6568 /* Employee.swift */; };
+		4FDEC5742B75603C009F6568 /* BookingPolicySerivce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDEC5732B75603C009F6568 /* BookingPolicySerivce.swift */; };
+		4FDEC5762B7561ED009F6568 /* Policy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDEC5752B7561ED009F6568 /* Policy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		4FDEC5692B75554F009F6568 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		4FDEC56B2B755B1B009F6568 /* CompanyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyService.swift; sourceTree = "<group>"; };
 		4FDEC56F2B755B51009F6568 /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
+		4FDEC5732B75603C009F6568 /* BookingPolicySerivce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingPolicySerivce.swift; sourceTree = "<group>"; };
+		4FDEC5752B7561ED009F6568 /* Policy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Policy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				4FDEC5652B755193009F6568 /* HotelService.swift */,
+				4FDEC5732B75603C009F6568 /* BookingPolicySerivce.swift */,
 				4FDEC56B2B755B1B009F6568 /* CompanyService.swift */,
 			);
 			path = Services;
@@ -154,6 +159,7 @@
 				4FDEC5672B7552C0009F6568 /* Hotel.swift */,
 				4FDEC5692B75554F009F6568 /* Room.swift */,
 				4FDEC56F2B755B51009F6568 /* Employee.swift */,
+				4FDEC5752B7561ED009F6568 /* Policy.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -290,11 +296,13 @@
 			files = (
 				4FDEC53E2B75516A009F6568 /* ContentView.swift in Sources */,
 				4FDEC56C2B755B1B009F6568 /* CompanyService.swift in Sources */,
+				4FDEC5762B7561ED009F6568 /* Policy.swift in Sources */,
 				4FDEC5662B755193009F6568 /* HotelService.swift in Sources */,
 				4FDEC5702B755B51009F6568 /* Employee.swift in Sources */,
 				4FDEC5682B7552C0009F6568 /* Hotel.swift in Sources */,
 				4FDEC53C2B75516A009F6568 /* Hotel_Booking_TDDApp.swift in Sources */,
 				4FDEC56A2B75554F009F6568 /* Room.swift in Sources */,
+				4FDEC5742B75603C009F6568 /* BookingPolicySerivce.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

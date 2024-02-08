@@ -31,8 +31,8 @@ struct HotelService {
         hotelList.first(where: {$0.id == id})
     }
     
-    mutating func setRoom(number: Int, type: Room.roomType, in hotel: Hotel) throws {
-        let room = Room(number: number, type: type)
+    mutating func setRoom(number: Int, type: Room.roomType, size: Room.roomSize, in hotel: Hotel) throws {
+        let room = Room(number: number, type: type, size: size)
         
         guard let index = hotelList.firstIndex(of: hotel) else { throw hotelError.hotelDoesNotExist }
         

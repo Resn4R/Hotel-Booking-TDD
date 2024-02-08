@@ -8,10 +8,20 @@
 import Foundation
 
 struct Room: Equatable {
+    enum roomSize {
+        case single, double
+    }
     enum roomType {
-        case single, double, triple
+        case standard, junior, master
     }
     
     let number: Int
     let type: roomType
+    let size: roomSize?
+    
+    init(number: Int, type: roomType, size: roomSize) {
+        self.number = number
+        self.type = type
+        self.size = size
+    }
 }
