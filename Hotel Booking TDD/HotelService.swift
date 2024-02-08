@@ -9,14 +9,28 @@ import Foundation
 
 struct HotelService {
     
-    var hotelList: [Hotel] = []
-    
-    mutating func addHotel(_ hotel: Hotel) {
-        hotelList.append(hotel)
+    enum hotelError: Error {
+    case hotelAlreadyExists
     }
     
-    func getHotel(at index: Int) -> Hotel {
-        hotelList[index]
+    var hotelList: [Hotel] = []
+    
+    mutating func addHotel(_ hotel: Hotel) throws {
+        
+        do {
+            if hotelList.contains(where: {$0.id == hotel.id}) {
+                throw hotelError.hotelAlreadyExists
+            }
+            hotelList.append(hotel)
+        } catch {
+            print("Hotel already exists.")
+        }
+        
+        
+    }
+    
+    func findHotel(by id: Int) -> Hotel? {
+        hotelList.first(where: {$0.id == id})
     }
     
     mutating func setRoom(number: Int, type: Room.roomType, in hotel: Hotel) {
